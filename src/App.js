@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import ChildComponent from './ChildComponent';
 
 function App() {
+  const [message, setMessage] = useState("Hello World!");
+  const handleChangeMessage = () => {
+    setMessage("New Message");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>React Debugging Example</h1>
+      <button onClick={handleChangeMessage}>Change Message</button>
+      <ChildComponent message={message} />
     </div>
   );
 }
